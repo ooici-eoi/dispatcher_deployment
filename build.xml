@@ -1,0 +1,56 @@
+<!-- Ant build file for LCAarch -->
+<project name="ioncore-python" default="info" basedir=".">
+    <description>
+        This is the ANT build file for the OOI CI Python capability
+        container and service platform.
+    </description>
+
+  <!-- set global properties for this build -->
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+
+  <target name="info">
+    <echo message="ioncore-python ant build file. Specify a target to build."/>
+    <echo message="Run 'ant -p' to retrieve a list of targets."/>
+  </target>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+  </target>
+
+ <target name="clean"
+     description="clean up"> 
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+    <delete dir="ioncore.egg-info"/>
+    <delete dir="_trial_temp"/>
+    <!--<antcall target="remeggs"/>-->
+  </target>
+
+  <target name="dir.check">
+      <condition property="dir.exists">
+          <available file="eggs" type="dir"/>
+      </condition>
+  </target>
+
+  <target name="remeggs" depends="dir.check" if="dir.exists">
+      <echo message="Remove buildout eggs eggs/ionprot*"/>
+      <delete includeemptydirs="true">
+           <fileset dir="eggs" includes="**/ionproto*/" />
+       </delete>
+    <echo message="Use 'ant clean-buildout' if you want to completely clean out buildout directories."/>
+   </target>
+
+  <target name="clean-buildout"
+        description="clean up buildout dirs" depends="clean" >
+    <echo message="Clean up buildout directories.  Please run `python bootstrap.py` to start buildout."/>
+    <delete dir="parts"/>
+    <delete dir="develop-eggs"/>
+    <delete dir="bin"/>
+    <delete dir="downloads"/>
+    <delete dir="eggs"/>
+    <delete file=".installed.cfg"/>
+  </target>
+
+</project>
