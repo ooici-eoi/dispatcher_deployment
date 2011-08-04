@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "Running example dispatcher script for \"$USER\" at $(date +"%m-%d-%Y %H:%M:%S") against dataset_id \"${1}\"" >> ./dispatcher.log
