@@ -1,5 +1,7 @@
 # Dispatcher for early adopters
 
+**You must be registered with the ION system and your user must have early-adopter priviledges for the dispatcher to function.**  Contact Chris Mueller for more info.
+
 ## To install:
 
 ### VirtualEnv
@@ -10,7 +12,6 @@ setup your python virtualenv:
 
 ### Obtain the deployment
 #### With GIT:
-clone:
 
     git clone git://github.com/ooici-eoi/dispatcher_deployment.git 
     cd dispatcher_deployment
@@ -25,6 +26,7 @@ download tarball from https://github.com/ooici-eoi/dispatcher_deployment/archive
 
 ### Configure the deployment:
 from the 'dispatcher_deployment' directory, configure the deployment with:
+
     python bootstrap.py
     ./bin/buildout dispatcher-config:host=<your host here> dispatcher-config:sysname=<your sysname here>
 
@@ -57,8 +59,13 @@ Turn off the current dispatcher with:
 Run the following command:
 
     bin/update.sh
+
+**OR** perform the update manually (update.sh records your last buildout settings so you don't have to retype all of this):
+
+    git pull
+    ./bin/buildout dispatcher-config:host=<your host here> dispatcher-config:sysname=<your sysname here>
     
-Start the dispatcher:
+Restart the dispatcher via supervisord:
 
     bin/dispatcher-supervisord
 
