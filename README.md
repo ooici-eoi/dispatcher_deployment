@@ -51,8 +51,8 @@ Now you can navigate to http://localhost:9001 to see it running, login with ooic
 ### If installed with git:
 Turn off the current dispatcher with:
 
-    bin/dispatcher-supervisord stop
-    bin/dispatcher-supervisord shutdown
+    bin/dispatcher-supervisorctl stop
+    bin/dispatcher-supervisorctl shutdown
     ps –ef | grep dispatcher
     kill –9 <any processes the grep finds>
     
@@ -73,8 +73,8 @@ Restart the dispatcher via supervisord:
 
 Turn off the current dispatcher:
 
-    bin/dispatcher-supervisord stop
-    bin/dispatcher-supervisord shutdown
+    bin/dispatcher-supervisorctl stop
+    bin/dispatcher-supervisorctl shutdown
     ps –ef | grep dispatcher
     kill –9 <any processes the grep finds>
 
