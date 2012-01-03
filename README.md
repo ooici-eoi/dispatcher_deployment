@@ -29,6 +29,9 @@ from the 'dispatcher_deployment' directory, configure the deployment with:
 
     python bootstrap.py
     ./bin/buildout dispatcher-config:host=<your host here> dispatcher-config:sysname=<your sysname here>
+    
+**NOTE:** If the broker has a username/password, specify it via `dispatcher-config:username=<username>` 
+and `dispatcher-config:password=<password>` on the command above.
 
 ## To run:
 
@@ -64,6 +67,9 @@ Run the following command:
 
     git pull
     ./bin/buildout dispatcher-config:host=<your host here> dispatcher-config:sysname=<your sysname here>
+    
+**NOTE:** If the broker has a username/password, specify it via `dispatcher-config:username=<username>` 
+and `dispatcher-config:password=<password>` on the command above.
     
 Restart the dispatcher via supervisord:
 
